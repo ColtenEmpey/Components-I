@@ -87,8 +87,50 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: "test",
+    date: "test",
+    firstParagraph: "test",
+
+    secondParagraph: "test",
+
+    thirdParagraph: "test"
   }
 ];
+
+const articleMaker = (obj) =>{
+  //create
+  const div = document.createElement("div")
+  const h2 = document.createElement("h2")
+  const articleDate = document.createElement("p")
+  const p1 = document.createElement("p")
+  const p2 = document.createElement("p")
+  const p3 = document.createElement("p")
+  const span = document.createElement("span") 
+  //enter details
+  div.classList.add("article")
+      // h2.textContent = obj.title
+  articleDate.classList.add("date")
+  span.classList.add("expandButton")
+  //connect them
+  div.appendChild(h2)
+  div.appendChild(articleDate)
+  div.appendChild(p1)
+  div.appendChild(p2)
+  div.appendChild(p3)
+  div.appendChild(span)
+
+span.addEventListener("click", () =>{
+  div.classList.toggle("article-open")
+})
+
+return div
+}
+
+data.forEach(element => {
+  document.querySelector("div.article").appendChild(articleMaker(article))
+});
 
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
